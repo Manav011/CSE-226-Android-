@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Facebook Icon -->
+    <ImageView
+        android:id="@+id/facebookIcon"
+        android:layout_width="311dp"
+        android:layout_height="273dp"
+        android:layout_gravity="center"
+        android:src="@drawable/facebook" /> <!-- Replace with your Facebook icon drawable -->
+
+    <TextView
+        android:id="@+id/fbtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Facebook"
+        android:layout_gravity="center"
+        android:textSize="50sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/fbdesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:justificationMode="inter_word"
+        android:text="Facebook is a social media platform that connects people around the world. It allows users to share updates, photos, and connect with friends and family."
+        android:textSize="20sp" />
+
+    <!-- Redirect Button -->
+    <Button
+        android:id="@+id/openFacebookButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
+        android:text="Visit Facebook" />
+
+</LinearLayout>
