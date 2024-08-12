@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.learning226.R
 
 class MyBaseAdapter(private val context: Context,
@@ -14,6 +16,7 @@ class MyBaseAdapter(private val context: Context,
     private lateinit var serialNum: TextView
     private lateinit var name: TextView
     private lateinit var contactNum: TextView
+    private lateinit var image1: ImageView
 
     override fun getCount(): Int {
         return arrayList.size
@@ -29,11 +32,15 @@ class MyBaseAdapter(private val context: Context,
         serialNum= convertView.findViewById(R.id.serialNumber)
         name = convertView.findViewById(R.id.studentName)
         contactNum = convertView.findViewById(R.id.mobno)
+        image1 = convertView.findViewById(R.id.baseimageview)
 
-        serialNum.text = " "+ arrayList[position].Mobnum
+        serialNum.text = " "+ arrayList[position].id
         name.text = arrayList[position].Name
         contactNum.text = arrayList[position].Mobnum
+        image1.setOnClickListener {
+            Toast.makeText(context, "Image clicked!", Toast.LENGTH_SHORT).show()
+        }
 
-        return convertView
+            return convertView
     }
 }

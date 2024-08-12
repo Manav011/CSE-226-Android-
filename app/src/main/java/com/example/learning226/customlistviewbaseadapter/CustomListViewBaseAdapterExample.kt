@@ -19,9 +19,9 @@ class CustomListViewBaseAdapterExample : AppCompatActivity() {// we can do more 
         setContentView(R.layout.activity_custom_list_view_base_adapter_example)
         title = "ListView BaseAdapter"
         listView = findViewById(R.id.baseadapterlistView)
-        arrayList.add(MyData(1, "Manav", "977979797979797"))
-        arrayList.add(MyData(2, "Manav", "977979797979797"))
-        arrayList.add(MyData(3, "Manav", "977979797979797"))
+        arrayList.add(MyData(1, "Manav", "98789465416"))
+        arrayList.add(MyData(2, "Mana", "68471489455"))
+        arrayList.add(MyData(3, "Man", "964718949445"))
         adapter = MyBaseAdapter(this@CustomListViewBaseAdapterExample, arrayList)
         listView.adapter = adapter
     }
