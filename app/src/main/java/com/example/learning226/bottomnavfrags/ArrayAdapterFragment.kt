@@ -14,6 +14,7 @@ import com.example.learning226.customlistviewarrayadapter.CustomListViewArrayAda
 import com.example.learning226.customlistviewbaseadapter.CustomListViewBaseAdapterExample
 import com.example.learning226.dynamicallyaddingitemusingadapter.DynamicallyAddingGridElement
 import com.example.learning226.dynamicallyaddingitemusingadapter.DynamicallyAddingUsingAdapter
+import com.example.learning226.recyclerview.DynamicRecyclerView
 import com.example.learning226.recyclerview.RecyclerViewExample
 
 // TODO: Rename parameter arguments, choose names that match
@@ -52,7 +53,14 @@ class ArrayAdapterFragment : Fragment() {
 
         val listView: ListView = view.findViewById(R.id.arrayadapterlistview)
 
-        val items = arrayOf("Array Adapter", "Base Adapter", "Dynamically Adding and Removing using Adapter", "Custom Grid View using Base Adapter", "Dynamically Adding and Removing using Adapter in Grid View", "Recycler View")
+        val items = arrayOf(
+            "ListView Array Adapter",
+            "ListView Base Adapter",
+            "Dynamic ListView",
+            "GridView Base Adapter",
+            "Dynamic GridView",
+            "ListView Recycler View",
+            "Dynamic Recycler View")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
         listView.adapter = adapter
 
@@ -64,6 +72,7 @@ class ArrayAdapterFragment : Fragment() {
                 3 -> startActivity(Intent(requireContext(), CustomGridViewExample::class.java))
                 4 -> startActivity(Intent(requireContext(), DynamicallyAddingGridElement::class.java))
                 5 -> startActivity(Intent(requireContext(), RecyclerViewExample::class.java))
+                6 -> startActivity(Intent(requireContext(), DynamicRecyclerView::class.java))
                 else -> throw IllegalArgumentException("Unexpected position: $position")
             }
         }

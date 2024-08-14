@@ -5,8 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="170sp"
+        android:layout_height="170sp"
         app:cardCornerRadius="10dp"
         android:layout_margin="8dp"
         android:scrollbars="vertical"
@@ -17,26 +17,37 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="16dp"
             android:background="@color/white"
             >
+            <ImageView
+                android:id="@+id/recyclerviewimage"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/facebook"/>
 
             <TextView
-                android:id="@+id/recyclerviewversionname"
+                android:id="@+id/recyclerviewversionname1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/recyclerviewimage"
+                android:layout_marginBottom="-38dp"
+                android:layout_centerHorizontal="true"
                 android:text="version name"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/recyclerviewversion"
+                android:id="@+id/recyclerviewversion1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/recyclerviewversionname1"
+                android:layout_marginBottom="-33dp"
+                android:layout_centerHorizontal="true"
                 android:text="version"
-                android:layout_alignParentRight="true"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
