@@ -2,30 +2,31 @@ package com.example.learning226.dynamicallyaddingitemusingadapter
 
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.ListView
+import android.widget.GridView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learning226.R
 import com.google.android.material.button.MaterialButton
 import kotlin.random.Random
 
-class DynamicallyAddingUsingAdapter : AppCompatActivity() {
+class DynamicallyAddingGridElement : AppCompatActivity() {
     lateinit var et1: EditText
     lateinit var et2: EditText
     lateinit var btn: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dynamically_adding_using_adapter)
-        var listview = findViewById<ListView>(R.id.dynamiclistview)
+//        enableEdgeToEdge()
+        setContentView(R.layout.activity_dynamically_adding_grid_element)
+        var gridview = findViewById<GridView>(R.id.dynamicgridview)
         var list = mutableListOf<DModel>()
-        et1 = findViewById(R.id.dynamicet1)
-        et2 = findViewById(R.id.dynamicet2)
-        btn = findViewById(R.id.dynamicbtn)
+        et1 = findViewById(R.id.dynamicet3)
+        et2 = findViewById(R.id.dynamicet4)
+        btn = findViewById(R.id.dynamicbtn1)
         btn.elevation = 100.0F
 
-        var adapter = CustomDynamicAdapter(this@DynamicallyAddingUsingAdapter, R.layout.dynamicaddinglistitem, list, true)
-        listview.adapter = adapter
+        var adapter = CustomDynamicAdapter(this@DynamicallyAddingGridElement, R.layout.grid_item, list, false)
+        gridview.adapter = adapter
 
         var ImageList = ArrayList<Int>()
         ImageList.add(R.drawable.twitter)
@@ -41,11 +42,10 @@ class DynamicallyAddingUsingAdapter : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
 
-        listview.setOnItemClickListener{parent, view, position, l ->
-            Toast.makeText(this@DynamicallyAddingUsingAdapter, "Removing...", Toast.LENGTH_SHORT).show()
+        gridview.setOnItemClickListener{parent, view, position, l ->
+            Toast.makeText(this@DynamicallyAddingGridElement, "Removing...", Toast.LENGTH_SHORT).show()
             list.removeAt(position)
             adapter.notifyDataSetChanged()
         }
-
     }
 }
