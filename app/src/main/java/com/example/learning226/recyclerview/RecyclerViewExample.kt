@@ -1,18 +1,19 @@
 package com.example.learning226.recyclerview
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learning226.R
+import com.google.android.material.snackbar.Snackbar
 
 class RecyclerViewExample : AppCompatActivity() {
     lateinit var data: ArrayList<Pojo>
     lateinit var recyclerView: RecyclerView
-    var adapter: RecyclerViewAdapter? = null
+    lateinit var adapter: RecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,11 +45,46 @@ class RecyclerViewExample : AppCompatActivity() {
         data.add(Pojo("Android 13", "13.0"))
         data.add(Pojo("Android 14", "14.0"))
 
-
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this@RecyclerViewExample, RecyclerView.VERTICAL, false)
         adapter = RecyclerViewAdapter(this@RecyclerViewExample, data)
         recyclerView.adapter = adapter
+
+        val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+            ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT // 0 disables swipe
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                val fromPosition = viewHolder.adapterPosition
+                val toPosition = target.adapterPosition
+                adapter.moveItem(fromPosition, toPosition)
+                return true
+            }
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+                val position = viewHolder.adapterPosition
+                val data1 = data.get(position)
+                if(direction == ItemTouchHelper.LEFT) {
+                    data.removeAt(position)
+                    adapter.notifyItemRemoved(position)
+                    Snackbar.make(
+                        recyclerView," Deleting " + data1.versionName,
+                        Snackbar.LENGTH_SHORT
+                    ).setAction("Undo", View.OnClickListener {
+                        data.add(position, data1)
+                        adapter.notifyItemInserted(position)
+                    }).show()
+                }else{
+                    adapter.notifyItemChanged(position)
+                    Toast.makeText(this@RecyclerViewExample, "Swiped Right", Toast.LENGTH_LONG).show()
+                }
+            }
+        })
+        itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 }

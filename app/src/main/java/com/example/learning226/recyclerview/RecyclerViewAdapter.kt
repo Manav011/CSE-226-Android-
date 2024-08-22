@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learning226.R
+import java.util.Collections
 
 class RecyclerViewAdapter(val context: Context, val data: ArrayList<Pojo>):
     RecyclerView.Adapter<RecyclerViewAdapter.MyHolder>(){
@@ -30,5 +31,25 @@ class RecyclerViewAdapter(val context: Context, val data: ArrayList<Pojo>):
     class MyHolder(val view: View): RecyclerView.ViewHolder(view){
         val versionname = view.findViewById<TextView>(R.id.recyclerviewversionname)
         val version = view.findViewById<TextView>(R.id.recyclerviewversion)
+    }
+
+    fun moveItem(fromPosition: Int, toPosition: Int) {
+        if (fromPosition < toPosition) {
+            for (i in fromPosition until toPosition) {
+                Collections.swap(data, i, i + 1)
+                Collections.swap(data, i, i + 1)
+            }
+        } else {
+            for (i in fromPosition downTo toPosition + 1) {
+                Collections.swap(data, i, i - 1)
+                Collections.swap(data, i, i - 1)
+            }
+        }
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    fun removeItem(position: Int) {
+        data.removeAt(position)
+        notifyItemRemoved(position)
     }
 }

@@ -1,11 +1,15 @@
 package com.example.learning226.bottomnavfrags
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import com.example.learning226.R
+import com.example.learning226.touchlandingpage.TouchLandingPage
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +40,23 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val list = view.findViewById<ListView>(R.id.homelistview)
+
+        val items = arrayOf("Touch Landing Page")
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
+
+        list.adapter = adapter
+        list.setOnItemClickListener{parent, view, position, id, ->
+            when(position){
+                0 -> startActivity(Intent(requireContext(), TouchLandingPage::class.java))
+                else -> throw IllegalArgumentException("Unexpected position home list viewL $position")
+            }
+        }
+
     }
 
     companion object {
