@@ -39,12 +39,11 @@ class TouchLandingPage : AppCompatActivity() {
         )
 
         timetableAdapter = TimetableAdapter(timetableData)
-        binding.timetableRecyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.timetableRecyclerView.layoutManager = LinearLayoutManager(this@TouchLandingPage, LinearLayoutManager.HORIZONTAL, false)
         binding.timetableRecyclerView.adapter = timetableAdapter
 
         gridAdapter = GridAdapter(gridData)
-        binding.gridRecyclerView.layoutManager = GridLayoutManager(this, 3)
+        binding.gridRecyclerView.layoutManager = GridLayoutManager(this@TouchLandingPage, 3)
         binding.gridRecyclerView.adapter = gridAdapter
 
 

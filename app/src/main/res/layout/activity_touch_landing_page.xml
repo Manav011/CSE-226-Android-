@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".touchlandingpage.TouchLandingPage">
+    tools:context=".touchlandingpage.TouchLandingPage"
+    android:background="@color/dark_background">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/timetableRecyclerView"
