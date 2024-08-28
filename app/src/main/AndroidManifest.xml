@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,13 +14,10 @@
         android:theme="@style/Theme.Learning226"
         tools:targetApi="31">
         <activity
-            android:name=".shoppinglandingpage.ShoppingPage"
+            android:name=".coroutines.CoroutinesExample"
             android:exported="false" />
         <activity
             android:name=".touchlandingpage.TouchLandingPage"
-            android:exported="false" />
-        <activity
-            android:name=".lputouchlanding.LpuTouchLandingPage"
             android:exported="false" />
         <activity
             android:name=".recyclerview.DynamicRecyclerView"

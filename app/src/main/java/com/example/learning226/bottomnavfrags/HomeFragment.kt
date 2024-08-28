@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.learning226.R
+import com.example.learning226.coroutines.CoroutinesExample
 import com.example.learning226.touchlandingpage.TouchLandingPage
 
 // TODO: Rename parameter arguments, choose names that match
@@ -46,13 +47,15 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val list = view.findViewById<ListView>(R.id.homelistview)
 
-        val items = arrayOf("Touch Landing Page")
+        val items = arrayOf("Touch Landing Page",
+                            "Coroutines 1")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
 
         list.adapter = adapter
         list.setOnItemClickListener{parent, view, position, id, ->
             when(position){
                 0 -> startActivity(Intent(requireContext(), TouchLandingPage::class.java))
+                1 -> startActivity(Intent(requireContext(), CoroutinesExample::class.java))
                 else -> throw IllegalArgumentException("Unexpected position home list viewL $position")
             }
         }
