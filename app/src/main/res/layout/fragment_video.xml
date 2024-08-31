@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".coroutines.Video">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_centerHorizontal="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/coroutinevideolink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Paste Video Link" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            >
+            <Button
+                android:id="@+id/coroutinevideobtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="Fetch"
+                />
+
+            <Button
+                android:id="@+id/coroutinevideobtn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fetch with Progress"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/coroutinevdostatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"/>
+
+        <VideoView
+            android:layout_width="wrap_content"
+            android:layout_height="350dp"
+            android:id="@+id/coroutinesVideoview"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            />
+
+        <ProgressBar
+            android:id="@+id/coroutinesvideoprogressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+
+</FrameLayout>
