@@ -11,15 +11,17 @@
         android:id="@+id/coroutinetabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabSelectedTextColor="@color/black"
+        app:tabSelectedTextColor="@color/lavenderlight"
         android:background="@color/lavender"
+        app:tabIconTint="@color/tabiconcolorselector"
+        app:tabIndicatorColor="@color/black"
         android:minHeight="?attr/actionBarSize"
         app:tabIndicator="@drawable/tab_indicator"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/coroutineviewPager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1" />
 
 </LinearLayout>

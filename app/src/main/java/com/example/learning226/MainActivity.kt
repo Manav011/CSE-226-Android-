@@ -26,14 +26,6 @@ class MainActivity : AppCompatActivity() {
         val headnav: MaterialToolbar = findViewById(R.id.toolbar)
         headnav.setOnMenuItemClickListener {
             when(it.itemId){
-//                R.id.customLVAA->{
-//                    startActivity(Intent(this@MainActivity, CustomListViewArrayAdapterExample::class.java))
-//                    true
-//                }
-//                R.id.customLVBA->{
-//                    startActivity(Intent(this@MainActivity, CustomListViewBaseAdapterExample::class.java))
-//                    true
-//                }
                 R.id.exit->{
                     finish()
                     true
@@ -51,26 +43,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.customfrag -> replaceFragment(BlankFragment())
             }
             true
-//            when(menuItem.itemId){
-//                R.id.alarmmanager->{
-////                    Toast.makeText(this, "searched", Toast.LENGTH_SHORT).show()
-//                    true
-//                }
-//                R.id.action_settings->{
-////                    Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show()
-//                    true
-//                }
-//                R.id.home->{
-////                    Toast.makeText(this, "homed", Toast.LENGTH_SHORT).show()
-//                    true
-//                }
-//                R.id.exit->{
-//                    finish()
-//                    true
-//                }
-//                else-> false
-//            }
-
         }
 
     }

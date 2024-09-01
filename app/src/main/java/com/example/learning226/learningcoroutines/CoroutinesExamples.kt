@@ -23,19 +23,41 @@ class CoroutinesExamples : AppCompatActivity() {
         val adapter = ViewPagerAdapter(fragments, supportFragmentManager,lifecycle)
         viewPager.adapter = adapter
 
+
+
         val tabLayout: TabLayout = findViewById(R.id.coroutinetabLayout)
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             // Set tab text or icon here if needed
             var tabtext = ""
+            var tabicon = 0
             when(position){
-                0 -> tabtext = "Image"
-                1 -> tabtext = "Video"
-                2 -> tabtext = "Audio"
-                3 -> tabtext = "Pdf"
-                4 -> tabtext = "Text"
-                5 -> tabtext = "Json"
+                0 -> {
+                    tabtext = "Image"
+                    tabicon = R.drawable.books
+                }
+                1 -> {
+                    tabtext = "Video"
+                    tabicon = R.drawable.youtube
+                }
+                2 -> {
+                    tabtext = "Audio"
+                    tabicon = R.drawable.baseline_audiotrack_24
+                }
+                3 -> {
+                    tabtext = "Pdf"
+                    tabicon = R.drawable.books
+                }
+                4 -> {
+                    tabtext = "Text"
+                    tabicon = R.drawable.add_24
+                }
+                5 -> {
+                    tabtext = "Json"
+                    tabicon = R.drawable.proflie_white_foreground
+                }
             }
             tab.text = tabtext
+            tab.setIcon(tabicon)
         }.attach()
     }
 }
