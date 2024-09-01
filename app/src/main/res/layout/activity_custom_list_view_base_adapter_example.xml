@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="8dp"
     android:orientation="vertical"
-    tools:context=".customlistviewbaseadapter.CustomListViewBaseAdapterExample">
+    tools:context=".learningadapter.customlistviewbaseadapter.CustomListViewBaseAdapterExample">
     <ListView
         android:id="@+id/baseadapterlistView"
         android:layout_width="match_parent"

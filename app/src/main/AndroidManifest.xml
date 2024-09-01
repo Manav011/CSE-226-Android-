@@ -15,38 +15,38 @@
         android:theme="@style/Theme.Learning226"
         tools:targetApi="31">
         <activity
-            android:name=".coroutines.CoroutinesExamples"
+            android:name=".learningcoroutines.CoroutinesExamples"
             android:exported="false" />
         <activity
-            android:name=".coroutines.CoroutinesExample"
+            android:name=".learningcoroutines.CoroutinesExample"
             android:exported="false" />
         <activity
-            android:name=".touchlandingpage.TouchLandingPage"
+            android:name=".learningadapter.touchlandingpage.TouchLandingPage"
             android:exported="false" />
         <activity
-            android:name=".recyclerview.DynamicRecyclerView"
+            android:name=".learningadapter.recyclerview.DynamicRecyclerView"
             android:exported="false" />
         <activity
-            android:name=".recyclerview.RecyclerViewExample"
+            android:name=".learningadapter.recyclerview.RecyclerViewExample"
             android:exported="false" />
         <activity
-            android:name=".dynamicallyaddingitemusingadapter.DynamicallyAddingGridElement"
+            android:name=".learningadapter.dynamicallyaddingitemusingadapter.DynamicallyAddingGridElement"
             android:exported="false" />
         <activity
-            android:name=".dynamicallyaddingitemusingadapter.DynamicallyAddingUsingAdapter"
+            android:name=".learningadapter.dynamicallyaddingitemusingadapter.DynamicallyAddingUsingAdapter"
             android:exported="false" />
         <activity
-            android:name=".customgridview.CustomGridViewExample"
+            android:name=".learningadapter.customgridview.CustomGridViewExample"
             android:exported="false" />
         <activity
-            android:name=".customlistviewbaseadapter.CustomListViewBaseAdapterExample"
+            android:name=".learningadapter.customlistviewbaseadapter.CustomListViewBaseAdapterExample"
             android:exported="false" />
         <activity
-            android:name=".customlistviewarrayadapter.FacebookActivity"
+            android:name=".learningadapter.customlistviewarrayadapter.FacebookActivity"
             android:exported="false"
             android:theme="@style/Theme.Learning226" />
         <activity
-            android:name=".customlistviewarrayadapter.CustomListViewArrayAdapterExample"
+            android:name=".learningadapter.customlistviewarrayadapter.CustomListViewArrayAdapterExample"
             android:exported="false"
             android:theme="@style/Theme.Learning226" />
         <activity

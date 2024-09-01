@@ -1,18 +1,14 @@
 package com.example.learning226
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.example.learning226.bottomnavfrags.ArrayAdapterFragment
-import com.example.learning226.bottomnavfrags.BlankFragment
-import com.example.learning226.bottomnavfrags.HomeFragment
-import com.example.learning226.bottomnavfrags.SettingsFragment
-import com.example.learning226.customlistviewarrayadapter.CustomListViewArrayAdapterExample
-import com.example.learning226.customlistviewbaseadapter.CustomListViewBaseAdapterExample
+import com.example.learning226.landingfragments.ArrayAdapterFragment
+import com.example.learning226.landingfragments.BlankFragment
+import com.example.learning226.landingfragments.HomeFragment
+import com.example.learning226.landingfragments.SettingsFragment
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.example.learning226.databinding.ActivityMainBinding;

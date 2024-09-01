@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".coroutines.CoroutinesExamples">
+    tools:context=".learningcoroutines.CoroutinesExamples">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/coroutinetabLayout"
