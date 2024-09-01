@@ -15,6 +15,7 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.example.learning226.R
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -48,34 +49,34 @@ class PdfDoc : Fragment() {
 
         btn.setOnClickListener{
             var pdfUrl = "https://www.iitk.ac.in/esc101/2009Jan/lecturenotes/timecomplexity/TimeComplexity_using_Big_O.pdf"
-
             var lnktxt = link.text.toString()
             if(lnktxt != "" && lnktxt.endsWith(".pdf")){
                 pdfUrl = lnktxt
+            }else{
+                status.text = "Invalid Link Provided, Downloading default PDF...."
             }
+            status.text = status.text.toString() + "\nDownloading..."
 
             //Launch a coroutine in the LifecycleScope
             lifecycleScope.launch(Dispatchers.IO){
-                withContext(Dispatchers.Main){
-                    status.text = "Downloading Pdf....."
-                }
                 val pdffile = downloadPdf(pdfUrl)
                 if(pdffile != null){
                     withContext(Dispatchers.Main){
-                        status.text = "Pdf Downloaded, Rendering"
+                        status.text = "PDF Downloaded, Rendering..."
                     }
-
+                    delay(1000)
                     val pdfBitmap = renderPdf(pdffile)
+
                     pdfBitmap?.let{
                         withContext(Dispatchers.Main){
                             view.setImageBitmap(pdfBitmap)
-                            status.text = "pdf rendered"
+                            status.text = "PDF rendered"
                         }
                     }
                 }
                 else {
                     withContext(Dispatchers.Main){
-                        status.text = "Failed to Download Pdf"
+                        status.text = "Failed to Download PDF"
                     }
                 }
             }
@@ -104,7 +105,7 @@ class PdfDoc : Fragment() {
         }
     }
 
-    private suspend fun renderPdf(file: File): Bitmap {
+    private suspend fun renderPdf(file: File): Bitmap? {
         return withContext(Dispatchers.IO){
             val fileDescriptor = ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY)
             val pdfRenderer = PdfRenderer(fileDescriptor)

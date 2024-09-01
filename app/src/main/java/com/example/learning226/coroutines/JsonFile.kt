@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.example.learning226.R
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -50,15 +51,22 @@ class JsonFile : Fragment() {
     }
 
     private fun fetchAndDisplay(){
-        status.text = "Downloading...."
+        val jsonUrl = "https://jsonplaceholder.typicode.com/users"
 
         lifecycleScope.launch(Dispatchers.IO){
             withContext(Dispatchers.Main){
+                status.text = "Downloading..."
+            }
+
+            val jsonData = fetchJsonData(jsonUrl)
+
+            withContext(Dispatchers.Main){
                 status.text = "Downloaded, Rendering...."
             }
-            val jsonUrl = "https://jsonplaceholder.typicode.com/users"
-            val jsonData = fetchJsonData(jsonUrl)
+            delay(1000)
+
             val formattedJson = parseAndFormatJsonData(jsonData)
+
             withContext(Dispatchers.Main){
                 if (jsonData != null){
                     jsonview.text = formattedJson

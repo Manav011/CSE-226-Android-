@@ -9,9 +9,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.learning226.R
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -54,22 +56,26 @@ class Audio : Fragment() {
         if(lnktxt != "" && lnktxt.endsWith(".mp3")){
             audioUrl = lnktxt
         }
-        status.text = "Downloading...."
+        else{
+            status.text = "Invalid Link Provided, Downloading default audio..."
+        }
+        status.text = status.text.toString() + "\nDownloading...."
 
         lifecycleScope.launch(Dispatchers.IO){
-            withContext(Dispatchers.Main){
-                status.text = "Downloaded, Rendering"
-            }
             val audioData = fetch(audioUrl)
-            if(audioData != null){
-                playAudio(audioData)
-                withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main){
+                if(audioData != null){
+                    status.text = "Downloaded, Rendering..."
+                    delay(1000)
+
+                    playAudio(audioData)
+
                     status.text = "Playing..."
+
                 }
-            }
-            else{
-                withContext(Dispatchers.Main){
+                else{
                     status.text = "Failed to Download Audio"
+
                 }
             }
         }

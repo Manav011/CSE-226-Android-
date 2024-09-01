@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.example.learning226.R
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -51,23 +52,25 @@ class TextFile : Fragment() {
     }
 
     private fun fetchAndDisplay(){
-        status.text = "Downloading...."
+        var textUrl = "https://example-files.online-convert.com/document/txt/example.txt"
+        var lnktxt = link.text.toString()
+        if(lnktxt != "" && lnktxt.endsWith(".txt")){
+            textUrl = lnktxt
+        }else{
+            status.text = "Invalid Link Provided, Downloading default text file..."
+        }
+
+        status.text = status.text.toString() + "Downloading..."
 
         lifecycleScope.launch(Dispatchers.IO){
-            withContext(Dispatchers.Main){
-                status.text = "Downloaded, Rendering...."
-            }
-            var textUrl = "https://example-files.online-convert.com/document/txt/example.txt"
-
-            var lnktxt = link.text.toString()
-            if(lnktxt != "" && lnktxt.endsWith(".txt")){
-                textUrl = lnktxt
-            }
-
             val FileContent = fetchTextFile(textUrl)
             withContext(Dispatchers.Main){
                 if (FileContent != null){
+                    status.text = "Downloaded, Rendering...."
+                    delay(1000)
+
                     txtview.text = FileContent
+
                     status.text = "Rendered"
                 }
                 else{

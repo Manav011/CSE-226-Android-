@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.learning226.R
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -45,30 +46,29 @@ class Image : Fragment() {
         val imageUrl = "https://img.freepik.com/free-vector/night-time-sky-background-with-glittering-stars_1048-19664.jpg"
 
         btn.setOnClickListener{
+            var lnktxt = link.text.toString()
+            if(lnktxt != "" && lnktxt.endsWith(".png")){
+                imgurl = lnktxt
+            }else{
+                status.text = "Invalid Link Provided, Downloading default Image...."
+            }
+
+            status.text = status.text.toString() + "\nDownloading..."
+
             lifecycleScope.launch(Dispatchers.IO){
-                withContext(Dispatchers.Main){
-                    status.text = "Downloading Image..."
-                }
-
-                var lnktxt = link.text.toString()
-                if(lnktxt != "" && lnktxt.endsWith(".png")){
-                    imgurl = lnktxt
-                }
-
                 val imageD = fetchImage(imgurl)
-                if(imageD != null){
-                    // Decode byte array into bitmap
-                    withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main){
+                    if(imageD != null){
+                        // Decode byte array into bitmap
                         status.text = "Downloaded, Rendering..."
-                    }
-                    val bitmap = BitmapFactory.decodeByteArray(imageD, 0, imageD.size)
-                    withContext(Dispatchers.Main){
+                        delay(1000)
+
+                        val bitmap = BitmapFactory.decodeByteArray(imageD, 0, imageD.size)
+
                         imgview.setImageBitmap(bitmap)
                         status.text = "Rendered"
                     }
-                }
-                else{
-                    withContext(Dispatchers.Main){
+                    else{
                         status.text = "Failed to Download Image"
                     }
                 }

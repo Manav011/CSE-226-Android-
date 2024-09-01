@@ -17,6 +17,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.learning226.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -31,7 +32,7 @@ class Video : Fragment() {
     private lateinit var videoview: VideoView
     private lateinit var btn: Button
     private lateinit var progbtn: Button
-    private lateinit var statustext: TextView
+    private lateinit var status: TextView
     private lateinit var link: EditText
     private lateinit var progressbar: ProgressBar
 
@@ -46,33 +47,34 @@ class Video : Fragment() {
         link = view.findViewById(R.id.coroutinevideolink)
         btn = view.findViewById(R.id.coroutinevideobtn)
         progbtn = view.findViewById(R.id.coroutinevideobtn1)
-        statustext = view.findViewById(R.id.coroutinevdostatus)
+        status = view.findViewById(R.id.coroutinevdostatus)
         videoview = view.findViewById(R.id.coroutinesVideoview)
         progressbar = view.findViewById(R.id.coroutinesvideoprogressbar)
         var videoUrl = "https://videos.pexels.com/video-files/3145223/3145223-uhd_2560_1440_30fps.mp4"
 
         btn.setOnClickListener{
-            lifecycleScope.launch {
 
-                withContext(Dispatchers.Main){
-                    statustext.text = "Downloading Video..."
-                }
-                var lnktxt = link.text.toString()
-                if(lnktxt != "" && lnktxt.endsWith(".mp4")){
-                    videoUrl = lnktxt
-                }
+            var lnktxt = link.text.toString()
+            if(lnktxt != "" && lnktxt.endsWith(".mp4")){
+                videoUrl = lnktxt
+            }else{
+                status.text = "Invalid Link Provided, Downloading Default video..."
+            }
+            status.text = status.text.toString() + "\nDownloading Video..."
+
+            lifecycleScope.launch {
                 val videoUri = fetchVideoUrl(videoUrl)
                 withContext(Dispatchers.Main) {
                     if (videoUri != null) {
-                        withContext(Dispatchers.Main){
-                            statustext.text = "Video Downloaded, Rendring"
-                        }
+                        status.text = "Video Downloaded, Rendring"
+                        delay(1000)
+
                         videoview.setVideoURI(videoUri)
                         videoview.start()
+
+                        status.text = "Rendered"
                     } else {
-                        withContext(Dispatchers.Main){
-                            statustext.text = "Failed to Download Video"
-                        }
+                        status.text = "Failed to Download Video"
                     }
                 }
             }
@@ -111,7 +113,7 @@ class Video : Fragment() {
 
                 if (response.isSuccessful) {
                     withContext(Dispatchers.Main){
-                        statustext.text = "Started Video"
+                        status.text = "Started Video"
                     }
                     Uri.parse(url)
                 } else {
