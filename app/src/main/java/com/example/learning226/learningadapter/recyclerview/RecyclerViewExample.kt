@@ -20,7 +20,7 @@ class RecyclerViewExample : AppCompatActivity() {
 //        enableEdgeToEdge()
         setContentView(R.layout.activity_recycler_view_example)
 
-        data = ArrayList();
+        data = ArrayList()
         data.add(Pojo("Alpha", "1.0"))
         data.add(Pojo("Beta", "1.1"))
         data.add(Pojo("Cupcake", "1.5"))
@@ -55,27 +55,21 @@ class RecyclerViewExample : AppCompatActivity() {
             ItemTouchHelper.UP or ItemTouchHelper.DOWN,
             ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT // 0 disables swipe
         ) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
                 val fromPosition = viewHolder.adapterPosition
                 val toPosition = target.adapterPosition
                 adapter.moveItem(fromPosition, toPosition)
                 return true
             }
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
-                val data1 = data.get(position)
+                val data1 = data[position]
                 if(direction == ItemTouchHelper.LEFT) {
                     data.removeAt(position)
                     adapter.notifyItemRemoved(position)
-                    Snackbar.make(
-                        recyclerView," Deleting " + data1.versionName,
-                        Snackbar.LENGTH_SHORT
-                    ).setAction("Undo", View.OnClickListener {
+                    Snackbar.make(recyclerView," Deleting " + data1.versionName, Snackbar.LENGTH_SHORT).setAction("Undo",
+                        View.OnClickListener {
                         data.add(position, data1)
                         adapter.notifyItemInserted(position)
                     }).show()

@@ -10,25 +10,25 @@ import com.google.android.material.button.MaterialButton
 import kotlin.random.Random
 
 class DynamicallyAddingGridElement : AppCompatActivity() {
-    lateinit var et1: EditText
-    lateinit var et2: EditText
-    lateinit var btn: MaterialButton
+    private lateinit var et1: EditText
+    private lateinit var et2: EditText
+    private lateinit var btn: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
         setContentView(R.layout.activity_dynamically_adding_grid_element)
-        var gridview = findViewById<GridView>(R.id.dynamicgridview)
-        var list = mutableListOf<DModel>()
+        val gridview = findViewById<GridView>(R.id.dynamicgridview)
+        val list = mutableListOf<DModel>()
         et1 = findViewById(R.id.dynamicet3)
         et2 = findViewById(R.id.dynamicet4)
         btn = findViewById(R.id.dynamicbtn1)
         btn.elevation = 100.0F
 
-        var adapter = CustomDynamicAdapter(this@DynamicallyAddingGridElement, R.layout.grid_item, list, false)
+        val adapter = CustomDynamicAdapter(this@DynamicallyAddingGridElement, R.layout.grid_item, list, false)
         gridview.adapter = adapter
 
-        var ImageList = ArrayList<Int>()
+        val ImageList = ArrayList<Int>()
         ImageList.add(R.drawable.twitter)
         ImageList.add(R.drawable.facebook)
         ImageList.add(R.drawable.skype)
@@ -42,7 +42,7 @@ class DynamicallyAddingGridElement : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
 
-        gridview.setOnItemClickListener{parent, view, position, l ->
+        gridview.setOnItemClickListener{parent, view, position, id ->
             Toast.makeText(this@DynamicallyAddingGridElement, "Removing...", Toast.LENGTH_SHORT).show()
             list.removeAt(position)
             adapter.notifyDataSetChanged()

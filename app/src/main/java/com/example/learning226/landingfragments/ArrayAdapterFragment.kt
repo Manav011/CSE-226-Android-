@@ -24,10 +24,7 @@ import com.example.learning226.learningadapter.recyclerview.RecyclerViewExample
  */
 class ArrayAdapterFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_array_adapter, container, false)
     }
@@ -48,7 +45,7 @@ class ArrayAdapterFragment : Fragment() {
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
         listView.adapter = adapter
 
-        listView.setOnItemClickListener { parent, view, position, id ->
+        listView.setOnItemClickListener { parent, view1, position, id ->
             when (position) {
                 0 -> startActivity(Intent(requireContext(), CustomListViewArrayAdapterExample::class.java))
                 1 -> startActivity(Intent(requireContext(), CustomListViewBaseAdapterExample::class.java))

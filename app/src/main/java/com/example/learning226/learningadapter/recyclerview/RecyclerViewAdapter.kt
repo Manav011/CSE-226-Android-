@@ -1,7 +1,6 @@
 package com.example.learning226.learningadapter.recyclerview
 
 import android.content.Context
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.learning226.R
 import java.util.Collections
 
-class RecyclerViewAdapter(val context: Context, val data: ArrayList<Pojo>):
+class RecyclerViewAdapter(val context: Context, private val data: ArrayList<Pojo>):
     RecyclerView.Adapter<RecyclerViewAdapter.MyHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
@@ -25,7 +24,7 @@ class RecyclerViewAdapter(val context: Context, val data: ArrayList<Pojo>):
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
        val item = data[position]
         holder.versionname.text = item.versionName
-        holder.version.text = item.version.toString()
+        holder.version.text = item.version
     }
 
     class MyHolder(val view: View): RecyclerView.ViewHolder(view){

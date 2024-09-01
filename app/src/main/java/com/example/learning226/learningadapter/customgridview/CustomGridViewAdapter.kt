@@ -11,11 +11,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.learning226.R
 
-class CustomGridViewAdapter(context: Context, Images: ArrayList<Int>, names: Array<String>) : BaseAdapter(){
+class CustomGridViewAdapter(val context: Context, val ImageList: ArrayList<Int>, val names: Array<String>) : BaseAdapter(){
 
-    var context = context;
-    var ImageList = Images;
-    var names = names;
+//    var context = context;
+//    var ImageList = Images;
+//    var names = names;
 
 
     override fun getCount(): Int {
@@ -23,7 +23,8 @@ class CustomGridViewAdapter(context: Context, Images: ArrayList<Int>, names: Arr
     }
 
     override fun getItem(position: Int): Any {
-        return ImageList.get(position)
+//        return ImageList.get(position)
+        return ImageList[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -32,29 +33,30 @@ class CustomGridViewAdapter(context: Context, Images: ArrayList<Int>, names: Arr
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var myView = convertView
-        var holder: ViewHolder
+        val holder: ViewHolder
 
         if(myView == null){
             val mInflater = (context as Activity).layoutInflater
             myView = mInflater.inflate(R.layout.grid_item, parent, false)
             holder = ViewHolder()
 
-            holder.mImageView = myView!!.findViewById<ImageView>(R.id.gridImageView) as ImageView
-            holder.mTextView = myView!!.findViewById<TextView>(R.id.gridTextView) as TextView
+            holder.mImageView = myView!!.findViewById(R.id.gridImageView) as ImageView
+            holder.mTextView = myView!!.findViewById(R.id.gridTextView) as TextView
             myView.tag = holder
-        }else{
+        }
+        else{
             holder = myView.tag as ViewHolder
         }
 
-        holder.mImageView!!.setImageResource(ImageList.get(position))
-        holder.mTextView!!.setText(names.get(position))
+        holder.mImageView.setImageResource(ImageList.get(position))
+        holder.mTextView.setText(names.get(position))
 
         return myView
     }
 
-    class ViewHolder(){
-        var mImageView: ImageView? = null
-        var mTextView: TextView? = null
+    class ViewHolder {
+        lateinit var mImageView: ImageView
+        lateinit var mTextView: TextView
     }
 
 }

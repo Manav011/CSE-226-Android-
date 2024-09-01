@@ -37,15 +37,17 @@ class Image : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_image, container, false)
+
         btn = view.findViewById(R.id.coroutineimagebtn)
         imgview = view.findViewById(R.id.coroutinesImageview)
         link = view.findViewById(R.id.coroutineimagelink)
         status = view.findViewById(R.id.coroutinesimgstatus)
+
         var imgurl = "https://stsci-opo.org/STScI-01HZ7HA3A3ZKSJJ90YCZPV7XQ2.png"
-        val imageUrl = "https://img.freepik.com/free-vector/night-time-sky-background-with-glittering-stars_1048-19664.jpg"
+//        val imageUrl = "https://img.freepik.com/free-vector/night-time-sky-background-with-glittering-stars_1048-19664.jpg"
 
         btn.setOnClickListener{
-            var lnktxt = link.text.toString()
+            val lnktxt = link.text.toString()
             if(lnktxt != "" && lnktxt.endsWith(".png")){
                 imgurl = lnktxt
             }else{

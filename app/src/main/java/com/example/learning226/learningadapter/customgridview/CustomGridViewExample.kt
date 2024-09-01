@@ -3,13 +3,11 @@ package com.example.learning226.learningadapter.customgridview
 import android.os.Bundle
 import android.widget.GridView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.learning226.R
 
 class CustomGridViewExample : AppCompatActivity() {
+    // we need to make adapter a different val when we use it somewhere else than just assigning it
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
@@ -28,11 +26,11 @@ class CustomGridViewExample : AppCompatActivity() {
 
         val name = arrayOf("youtube", "facebook", "skype", "twitter", "whatsapp", "audio", "android")
 
-        val Gridadapter = CustomGridViewAdapter(this@CustomGridViewExample, Imagelist, name)
+        gridView.adapter = CustomGridViewAdapter(this@CustomGridViewExample, Imagelist, name)
 
-        gridView.adapter = Gridadapter
+//        gridView.adapter = Gridadapter
 
-        gridView.setOnItemClickListener{adapterView, parent, position, l ->
+        gridView.setOnItemClickListener{adapterView, parent, position, id ->
             Toast.makeText(this@CustomGridViewExample, name[position], Toast.LENGTH_SHORT).show()
         }
     }

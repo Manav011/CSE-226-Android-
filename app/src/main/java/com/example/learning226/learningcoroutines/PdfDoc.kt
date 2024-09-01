@@ -49,7 +49,7 @@ class PdfDoc : Fragment() {
 
         btn.setOnClickListener{
             var pdfUrl = "https://www.iitk.ac.in/esc101/2009Jan/lecturenotes/timecomplexity/TimeComplexity_using_Big_O.pdf"
-            var lnktxt = link.text.toString()
+            val lnktxt = link.text.toString()
             if(lnktxt != "" && lnktxt.endsWith(".pdf")){
                 pdfUrl = lnktxt
             }else{
@@ -67,7 +67,7 @@ class PdfDoc : Fragment() {
                     delay(1000)
                     val pdfBitmap = renderPdf(pdffile)
 
-                    pdfBitmap?.let{
+                    pdfBitmap.let{
                         withContext(Dispatchers.Main){
                             view.setImageBitmap(pdfBitmap)
                             status.text = "PDF rendered"
@@ -105,7 +105,7 @@ class PdfDoc : Fragment() {
         }
     }
 
-    private suspend fun renderPdf(file: File): Bitmap? {
+    private suspend fun renderPdf(file: File): Bitmap {
         return withContext(Dispatchers.IO){
             val fileDescriptor = ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY)
             val pdfRenderer = PdfRenderer(fileDescriptor)

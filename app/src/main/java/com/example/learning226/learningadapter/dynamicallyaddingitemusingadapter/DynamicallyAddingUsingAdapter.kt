@@ -17,8 +17,10 @@ class DynamicallyAddingUsingAdapter : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dynamically_adding_using_adapter)
+
         var listview = findViewById<ListView>(R.id.dynamiclistview)
         var list = mutableListOf<DModel>()
+
         et1 = findViewById(R.id.dynamicet1)
         et2 = findViewById(R.id.dynamicet2)
         btn = findViewById(R.id.dynamicbtn)
@@ -41,7 +43,7 @@ class DynamicallyAddingUsingAdapter : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
 
-        listview.setOnItemClickListener{parent, view, position, l ->
+        listview.setOnItemClickListener{parent, view, position, id ->
             Toast.makeText(this@DynamicallyAddingUsingAdapter, "Removing...", Toast.LENGTH_SHORT).show()
             list.removeAt(position)
             adapter.notifyDataSetChanged()

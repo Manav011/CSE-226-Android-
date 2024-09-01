@@ -18,9 +18,6 @@
             android:name=".learningcoroutines.CoroutinesExamples"
             android:exported="false" />
         <activity
-            android:name=".learningcoroutines.CoroutinesExample"
-            android:exported="false" />
-        <activity
             android:name=".learningadapter.touchlandingpage.TouchLandingPage"
             android:exported="false" />
         <activity

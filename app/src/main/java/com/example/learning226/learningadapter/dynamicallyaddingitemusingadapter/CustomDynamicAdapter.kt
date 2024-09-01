@@ -1,7 +1,6 @@
 package com.example.learning226.learningadapter.dynamicallyaddingitemusingadapter
 
 import android.content.Context
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +9,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.learning226.R
 
-class CustomDynamicAdapter(var mCtx:Context, var resources:Int, var items:List<DModel>, var isList: Boolean):
+class CustomDynamicAdapter(private var mCtx:Context, var resources:Int, private var items:List<DModel>, private var isList: Boolean):
     ArrayAdapter<DModel>(mCtx, resources,items) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
-        val view: View = layoutInflater.inflate(resources,null)
+//        val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
+        val view: View = LayoutInflater.from(mCtx).inflate(resources,null)
 
         if(isList){
             val name = view.findViewById<TextView>(R.id.studentName1)

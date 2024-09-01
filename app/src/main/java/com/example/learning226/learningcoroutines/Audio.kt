@@ -51,7 +51,7 @@ class Audio : Fragment() {
 
     private fun fetchAndPlay(){
         var audioUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3"
-        var lnktxt = link.text.toString()
+        val lnktxt = link.text.toString()
         if(lnktxt != "" && lnktxt.endsWith(".mp3")){
             audioUrl = lnktxt
         }

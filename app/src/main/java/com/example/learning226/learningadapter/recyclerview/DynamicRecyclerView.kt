@@ -10,10 +10,10 @@ import com.google.android.material.button.MaterialButton
 import kotlin.random.Random
 
 class DynamicRecyclerView : AppCompatActivity() {
-    lateinit var et1: EditText
-    lateinit var et2: EditText
-    lateinit var btn: MaterialButton
-    lateinit var data: MutableList<Pojo>
+    private lateinit var et1: EditText
+    private lateinit var et2: EditText
+    private lateinit var btn: MaterialButton
+    private lateinit var data: MutableList<Pojo>
     lateinit var adapter: RecyclerViewDynamicAdapter
 
 
@@ -21,7 +21,7 @@ class DynamicRecyclerView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
         setContentView(R.layout.activity_dynamic_recycler_view)
-        var recyclerview = findViewById<RecyclerView>(R.id.dynamicrecgridview)
+        val recyclerview = findViewById<RecyclerView>(R.id.dynamicrecgridview)
 
         data = mutableListOf()
         et1 = findViewById(R.id.dynamicrecet1)
@@ -34,7 +34,7 @@ class DynamicRecyclerView : AppCompatActivity() {
         adapter = RecyclerViewDynamicAdapter(this@DynamicRecyclerView,  data)
         recyclerview.adapter = adapter
 
-        var ImageList = ArrayList<Int>()
+        val ImageList = ArrayList<Int>()
         ImageList.add(R.drawable.twitter)
         ImageList.add(R.drawable.facebook)
         ImageList.add(R.drawable.skype)

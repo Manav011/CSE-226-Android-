@@ -1,5 +1,6 @@
 package com.example.learning226.learningcoroutines
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -49,11 +50,11 @@ class Video : Fragment() {
         status = view.findViewById(R.id.coroutinevdostatus)
         videoview = view.findViewById(R.id.coroutinesVideoview)
         progressbar = view.findViewById(R.id.coroutinesvideoprogressbar)
+
         var videoUrl = "https://videos.pexels.com/video-files/3145223/3145223-uhd_2560_1440_30fps.mp4"
 
         btn.setOnClickListener{
-
-            var lnktxt = link.text.toString()
+            val lnktxt = link.text.toString()
             if(lnktxt != "" && lnktxt.endsWith(".mp4")){
                 videoUrl = lnktxt
             }else{
@@ -61,7 +62,7 @@ class Video : Fragment() {
             }
             status.text = status.text.toString() + "\nDownloading Video..."
 
-            lifecycleScope.launch {
+            lifecycleScope.launch(Dispatchers.IO) {
                 val videoUri = fetchVideoUrl(videoUrl)
                 withContext(Dispatchers.Main) {
                     if (videoUri != null) {
@@ -87,15 +88,23 @@ class Video : Fragment() {
 
             progressbar.visibility = ProgressBar.VISIBLE
 
-            var lnktxt = link.text.toString()
+            val lnktxt = link.text.toString()
             if(lnktxt != "" && lnktxt.endsWith(".mp4")){
                 videoUrl = lnktxt
+            }else{
+                status.text = "Invalid Link Provided, Downloading Default video..."
             }
+            status.text = status.text.toString() + "\nDownloading Video..."
 
             CoroutineScope(Dispatchers.IO).launch{
                 withContext(Dispatchers.Main){
                     videoview.setVideoPath(videoUrl)
+
+                    status.text = "Downloaded, Rendering..."
+                    delay(1000)
+
                     videoview.start()
+                    status.text = "Rendered"
                 }
             }
         }
@@ -111,9 +120,6 @@ class Video : Fragment() {
                 val response = client.newCall(request).execute()
 
                 if (response.isSuccessful) {
-                    withContext(Dispatchers.Main){
-                        status.text = "Started Video"
-                    }
                     Uri.parse(url)
                 } else {
                     null
