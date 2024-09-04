@@ -11,6 +11,7 @@ import android.widget.ListView
 import com.example.learning226.R
 import com.example.learning226.learningcoroutines.CoroutinesExamples
 import com.example.learning226.learningadapter.touchlandingpage.TouchLandingPage
+import com.example.learning226.learningforegroundservices.ForegroundServicesMain
 
 /**
  * A simple [Fragment] subclass.
@@ -32,7 +33,8 @@ class HomeFragment : Fragment() {
         val list = view.findViewById<ListView>(R.id.homelistview)
 
         val items = arrayOf("Touch Landing Page",
-                            "Coroutine U-2")
+                            "Coroutine U-2",
+                            "Foreground Service")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
 
         list.adapter = adapter
@@ -40,6 +42,7 @@ class HomeFragment : Fragment() {
             when(position){
                 0 -> startActivity(Intent(requireContext(), TouchLandingPage::class.java))
                 1 -> startActivity(Intent(requireContext(), CoroutinesExamples::class.java))
+                2 -> startActivity(Intent(requireContext(), ForegroundServicesMain::class.java))
                 else -> throw IllegalArgumentException("Unexpected position home list viewL $position")
             }
         }
