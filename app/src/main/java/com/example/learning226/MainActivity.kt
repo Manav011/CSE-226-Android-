@@ -12,6 +12,7 @@ import com.example.learning226.landingfragments.SettingsFragment
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.example.learning226.databinding.ActivityMainBinding;
+import com.example.learning226.landingfragments.LocationFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.action_settings -> replaceFragment(SettingsFragment())
                 R.id.arrayadapter -> replaceFragment(ArrayAdapterFragment())
                 R.id.customfrag -> replaceFragment(BlankFragment())
+                R.id.locationandmaps -> replaceFragment(LocationFragment())
             }
             true
         }

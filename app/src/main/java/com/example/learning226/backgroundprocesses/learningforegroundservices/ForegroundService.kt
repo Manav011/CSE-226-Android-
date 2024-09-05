@@ -1,4 +1,4 @@
-package com.example.learning226.learningforegroundservices
+package com.example.learning226.backgroundprocesses.learningforegroundservices
 
 import android.app.NotificationChannel
 import android.app.NotificationManager

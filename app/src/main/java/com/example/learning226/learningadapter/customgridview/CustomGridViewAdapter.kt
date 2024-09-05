@@ -4,14 +4,12 @@ import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ActionMenuView
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.learning226.R
 
-class CustomGridViewAdapter(val context: Context, val ImageList: ArrayList<Int>, val names: Array<String>) : BaseAdapter(){
+class CustomGridViewAdapter(val context: Context, private val ImageList: ArrayList<Int>, private val names: Array<String>) : BaseAdapter(){
 
 //    var context = context;
 //    var ImageList = Images;
@@ -48,8 +46,8 @@ class CustomGridViewAdapter(val context: Context, val ImageList: ArrayList<Int>,
             holder = myView.tag as ViewHolder
         }
 
-        holder.mImageView.setImageResource(ImageList.get(position))
-        holder.mTextView.setText(names.get(position))
+        holder.mImageView.setImageResource(ImageList[position])
+        holder.mTextView.text = names[position]
 
         return myView
     }

@@ -2,15 +2,12 @@ package com.example.learning226.learningadapter.customlistviewbaseadapter
 
 import android.os.Bundle
 import android.widget.ListView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.learning226.R
 
 class CustomListViewBaseAdapterExample : AppCompatActivity() {// we can do more customisation in base adapter like we can do something different with each element
-    lateinit var listView: ListView
-    var arrayList: ArrayList<MyData> = ArrayList()
+    private lateinit var listView: ListView
+    private var arrayList: ArrayList<MyData> = ArrayList()
 //    var adapter: MyBaseAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

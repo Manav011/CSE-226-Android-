@@ -9,9 +9,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.learning226.R
-import com.example.learning226.learningcoroutines.CoroutinesExamples
+import com.example.learning226.backgroundprocesses.broadcastreceiver.AirplaneModeReceiverMain
+import com.example.learning226.backgroundprocesses.learningcoroutines.CoroutinesExamples
 import com.example.learning226.learningadapter.touchlandingpage.TouchLandingPage
-import com.example.learning226.learningforegroundservices.ForegroundServicesMain
+import com.example.learning226.backgroundprocesses.learningforegroundservices.ForegroundServicesMain
 
 /**
  * A simple [Fragment] subclass.
@@ -34,7 +35,8 @@ class HomeFragment : Fragment() {
 
         val items = arrayOf("Touch Landing Page",
                             "Coroutine U-2",
-                            "Foreground Service")
+                            "Foreground Service",
+                            "Broadcast")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
 
         list.adapter = adapter
@@ -43,6 +45,7 @@ class HomeFragment : Fragment() {
                 0 -> startActivity(Intent(requireContext(), TouchLandingPage::class.java))
                 1 -> startActivity(Intent(requireContext(), CoroutinesExamples::class.java))
                 2 -> startActivity(Intent(requireContext(), ForegroundServicesMain::class.java))
+                3 -> startActivity(Intent(requireContext(), AirplaneModeReceiverMain::class.java))
                 else -> throw IllegalArgumentException("Unexpected position home list viewL $position")
             }
         }

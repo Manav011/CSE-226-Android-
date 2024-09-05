@@ -6,8 +6,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.learning226.R
 import com.example.learning226.databinding.ActivityTouchLandingPageBinding
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.learning226.learningadapter.recyclerview.Pojo
-import com.google.android.material.button.MaterialButton
 import kotlin.random.Random
 
 class TouchLandingPage : AppCompatActivity() {

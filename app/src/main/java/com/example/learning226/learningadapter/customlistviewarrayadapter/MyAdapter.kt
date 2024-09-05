@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.learning226.R
 
-class MyAdapter(var mCtx:Context, var resources:Int,var items:List<Model>):
+class MyAdapter(private var mCtx:Context, var resources:Int, private var items:List<Model>):
     ArrayAdapter<Model>(mCtx, resources,items){
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 //        val layoutInflater:LayoutInflater = LayoutInflater.from(mCtx)

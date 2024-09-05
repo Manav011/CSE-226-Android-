@@ -14,8 +14,8 @@ class CustomListViewArrayAdapterExample : AppCompatActivity(){ // ArrayAdapter h
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.custom_list_view_array_adapter_example)
-        var listView = findViewById<ListView>(R.id.listview)
-        var list = mutableListOf<Model>()
+        val listView = findViewById<ListView>(R.id.listview)
+        val list = mutableListOf<Model>()
 
         list.add(Model("Facebook", "desc", R.drawable.facebook))
         list.add(Model("Skype", "desc", R.drawable.skype))

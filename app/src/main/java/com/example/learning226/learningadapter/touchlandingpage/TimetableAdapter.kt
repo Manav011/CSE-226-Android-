@@ -10,7 +10,7 @@ import com.example.learning226.databinding.TimetableItemBinding
 class TimetableAdapter(private val timetableData: List<TimetableItem>) :
     RecyclerView.Adapter<TimetableAdapter.TimetableViewHolder>() {
 
-    class TimetableViewHolder(val binding: TimetableItemBinding) :
+    class TimetableViewHolder(private val binding: TimetableItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val subjectTextView: TextView = binding.subjectTextView
         val codeTextView: TextView = binding.codeTextView

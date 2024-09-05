@@ -1,4 +1,4 @@
-package com.example.learning226.learningcoroutines
+package com.example.learning226.backgroundprocesses.learningcoroutines
 
 import android.graphics.BitmapFactory
 import android.os.Bundle

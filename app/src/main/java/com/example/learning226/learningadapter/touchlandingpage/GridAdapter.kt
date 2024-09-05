@@ -1,7 +1,6 @@
 package com.example.learning226.learningadapter.touchlandingpage
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,7 +10,7 @@ import com.example.learning226.databinding.GriditemtouchBinding
 class GridAdapter(private val gridData: List<GridItem>) :
     RecyclerView.Adapter<GridAdapter.GridViewHolder>() {
 
-    class GridViewHolder(val binding: GriditemtouchBinding) : RecyclerView.ViewHolder(binding.root) {
+    class GridViewHolder(private val binding: GriditemtouchBinding) : RecyclerView.ViewHolder(binding.root) {
         val titleTextView: TextView = binding.titleTextView
         val countTextView: TextView = binding.countTextView
         val iconImageView: ImageView = binding.iconImageView
