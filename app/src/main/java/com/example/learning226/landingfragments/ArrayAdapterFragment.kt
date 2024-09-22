@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Toast
 import com.example.learning226.R
 import com.example.learning226.learningadapter.customgridview.CustomGridViewExample
 import com.example.learning226.learningadapter.customlistviewarrayadapter.CustomListViewArrayAdapterExample
@@ -54,7 +55,7 @@ class ArrayAdapterFragment : Fragment() {
                 4 -> startActivity(Intent(requireContext(), DynamicallyAddingGridElement::class.java))
                 5 -> startActivity(Intent(requireContext(), RecyclerViewExample::class.java))
                 6 -> startActivity(Intent(requireContext(), DynamicRecyclerView::class.java))
-                else -> throw IllegalArgumentException("Unexpected position: $position")
+                else -> Toast.makeText(requireContext(), "Invalid Item", Toast.LENGTH_SHORT).show()
             }
         }
     }

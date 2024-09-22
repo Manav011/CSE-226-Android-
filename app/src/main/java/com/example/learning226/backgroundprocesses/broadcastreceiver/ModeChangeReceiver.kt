@@ -6,10 +6,11 @@ import android.content.Intent
 import android.media.AudioManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.os.BatteryManager
 import android.os.Build
 import android.widget.Toast
 
-class AirplaneModeChangeReceiver: BroadcastReceiver() {
+class ModeChangeReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         when(intent?.action){
             Intent.ACTION_AIRPLANE_MODE_CHANGED -> {
@@ -33,6 +34,19 @@ class AirplaneModeChangeReceiver: BroadcastReceiver() {
             ConnectivityManager.CONNECTIVITY_ACTION -> {
                 val isConnected  = checkInternetConnection(context)
                 val message = if(isConnected){"Internet Connected"}else{"Internet Disconnected"}
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+            }
+            Intent.ACTION_BATTERY_CHANGED -> {
+                val level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
+                val scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1)
+                val isCharging = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1) > 0
+//                val batteryStaus: Int = intent.getIntExtra(BatteryManager.EXTRA_STATUS,0)
+//                val isCharging:Boolean = batteryStaus == BatteryManager.BATTERY_STATUS_CHARGING || batteryStaus == BatteryManager.BATTERY_STATUS_FULL
+
+                val batteryPercentage = (level / scale.toFloat() * 100).toInt()
+                val chargingStatus = if (isCharging) "Charging" else "Not Charging"
+                val message = "Battery: $batteryPercentage% ($chargingStatus)"
+
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             }
         }

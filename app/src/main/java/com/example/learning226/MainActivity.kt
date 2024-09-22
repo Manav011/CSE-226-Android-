@@ -1,6 +1,7 @@
 package com.example.learning226
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -13,6 +14,7 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.example.learning226.databinding.ActivityMainBinding;
 import com.example.learning226.landingfragments.LocationFragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -22,7 +24,13 @@ class MainActivity : AppCompatActivity() {
 //        enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(HomeFragment())
+        replaceFragment(ArrayAdapterFragment())
+
+
+        val floatingbtn: FloatingActionButton = findViewById(R.id.floatingbtn)
+        floatingbtn.setOnClickListener{
+            Toast.makeText(this@MainActivity, "FLoating button clicked", Toast.LENGTH_SHORT).show()
+        }
 
         val headnav: MaterialToolbar = findViewById(R.id.toolbar)
         headnav.setOnMenuItemClickListener {
@@ -46,7 +54,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
     }
 
     private fun replaceFragment(fragment: Fragment) {
