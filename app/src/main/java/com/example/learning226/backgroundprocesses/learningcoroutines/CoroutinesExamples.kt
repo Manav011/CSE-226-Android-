@@ -53,7 +53,7 @@ class CoroutinesExamples : AppCompatActivity() {
                 }
                 5 -> {
                     tabtext = "Json"
-                    tabicon = R.drawable.proflie_white_foreground
+                    tabicon = R.drawable.profile_white_foreground
                 }
             }
             tab.text = tabtext

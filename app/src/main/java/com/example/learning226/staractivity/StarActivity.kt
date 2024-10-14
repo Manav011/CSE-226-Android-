@@ -17,10 +17,10 @@ class StarActivity : AppCompatActivity() {
         val listView = findViewById<ListView>(R.id.starlistview)
         val list = mutableListOf<Model>()
 
-        list.add(Model("Mobile Data", "", R.drawable.proflie_white_foreground))
-        list.add(Model("AirplaneMode", "", R.drawable.proflie_white_foreground))
-        list.add(Model("Ringer", "", R.drawable.proflie_white_foreground))
-        list.add(Model("Image", "", R.drawable.proflie_white_foreground))
+        list.add(Model("Mobile Data", "", R.drawable.profile_white_foreground))
+        list.add(Model("AirplaneMode", "", R.drawable.profile_white_foreground))
+        list.add(Model("Ringer", "", R.drawable.profile_white_foreground))
+        list.add(Model("Image", "", R.drawable.profile_white_foreground))
 
         listView.adapter = MyAdapter(this@StarActivity, R.layout.listviewrow, list)
         listView.setOnItemClickListener{ parent: AdapterView<*>, view: View, position: Int, id: Long ->
