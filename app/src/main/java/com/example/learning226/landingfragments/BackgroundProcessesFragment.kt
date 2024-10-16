@@ -17,10 +17,10 @@ import com.example.learning226.staractivity.StarActivity
 
 /**
  * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
+ * Use the [BackgroundProcessesFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment() {
+class BackgroundProcessesFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/home"
-        android:title="Home"
-        android:icon="@drawable/baseline_home_24"
-        android:orderInCategory="2"
-        />
+
     <item
         android:id="@+id/arrayadapter"
         android:title="Array Adapter"
@@ -13,21 +8,27 @@
         android:orderInCategory="1"
         />
     <item
-        android:id="@+id/action_settings"
-        android:title="Settings"
-        android:icon="@drawable/baseline_settings_24"
+        android:id="@+id/backgroundprocesses"
+        android:title="Back. Process"
+        android:icon="@drawable/process_icon"
+        android:orderInCategory="2"
+        />
+    <item
+        android:id="@+id/delightfuluiux"
+        android:title="UI UX"
+        android:icon="@drawable/ui_icon"
         android:orderInCategory="3"
         />
     <item
-        android:id="@+id/customfrag"
-        android:title="Dayummmm"
-        android:icon="@drawable/baseline_audiotrack_24"
+        android:id="@+id/storageoptions"
+        android:title="Storage"
+        android:icon="@drawable/storage_icon"
         android:orderInCategory="4"
         />
     <item
         android:id="@+id/locationandmaps"
-        android:title="Location"
-        android:icon="@drawable/baseline_location_pin_24"
+        android:title="Loc. , Maps"
+        android:icon="@drawable/maps_icon"
         android:orderInCategory="4"
         />
 </menu>

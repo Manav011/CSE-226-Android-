@@ -7,13 +7,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.learning226.landingfragments.ArrayAdapterFragment
-import com.example.learning226.landingfragments.BlankFragment
-import com.example.learning226.landingfragments.HomeFragment
-import com.example.learning226.landingfragments.SettingsFragment
+import com.example.learning226.landingfragments.StorageOptionsFragment
+import com.example.learning226.landingfragments.BackgroundProcessesFragment
+import com.example.learning226.landingfragments.DelightfulUXFragment
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.example.learning226.databinding.ActivityMainBinding;
-import com.example.learning226.landingfragments.LocationFragment
+import com.example.learning226.databinding.ActivityMainBinding
+import com.example.learning226.landingfragments.LocationAndMapsFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -46,11 +46,11 @@ class MainActivity : AppCompatActivity() {
         var bottomnav: BottomNavigationView = findViewById(R.id.bottom_bar)
         bottomnav.setOnItemSelectedListener {item ->
             when (item.itemId) {
-                R.id.home -> replaceFragment(HomeFragment())
-                R.id.action_settings -> replaceFragment(SettingsFragment())
+                R.id.backgroundprocesses -> replaceFragment(BackgroundProcessesFragment())
+                R.id.delightfuluiux -> replaceFragment(DelightfulUXFragment())
                 R.id.arrayadapter -> replaceFragment(ArrayAdapterFragment())
-                R.id.customfrag -> replaceFragment(BlankFragment())
-                R.id.locationandmaps -> replaceFragment(LocationFragment())
+                R.id.storageoptions -> replaceFragment(StorageOptionsFragment())
+                R.id.locationandmaps -> replaceFragment(LocationAndMapsFragment())
             }
             true
         }

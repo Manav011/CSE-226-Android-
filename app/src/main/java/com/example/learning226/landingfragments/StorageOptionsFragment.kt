@@ -10,14 +10,15 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import com.example.learning226.R
+import com.example.learning226.storageoptions.roomdatabase.RoomDatabaseMain
 import com.example.learning226.storageoptions.sqllitedatabase.SQLiteMain
 
 /**
  * A simple [Fragment] subclass.
- * Use the [BlankFragment.newInstance] factory method to
+ * Use the [StorageOptionsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class BlankFragment : Fragment() {
+class StorageOptionsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,13 +29,15 @@ class BlankFragment : Fragment() {
         val listView: ListView = view.findViewById(R.id.blankfraglistview)
 
         val items = arrayOf(
-            "SQL Lite Database")
+            "SQL Lite Database",
+            "Room Database")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
         listView.adapter = adapter
 
         listView.setOnItemClickListener { parent, view1, position, id ->
             when (position) {
                 0 -> startActivity(Intent(requireContext(), SQLiteMain::class.java))
+                1 -> startActivity(Intent(requireContext(), RoomDatabaseMain::class.java))
                 else -> Toast.makeText(requireContext(), "Invalid Item", Toast.LENGTH_SHORT).show()
             }
         }

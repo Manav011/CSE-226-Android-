@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".storageoptions.roomdatabase.RoomDatabaseMain"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_centerHorizontal="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/roomdbided"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Id" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_centerHorizontal="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/roomdbnamed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/roomdbmobed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mobile Number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/roomdbaddbtn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:layout_marginEnd="50dp" />
+
+        <Button
+            android:id="@+id/roomdbdisplaybtn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:text="Display"/>
+
+        <Button
+            android:id="@+id/roomdbdelbtn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/roomdblistView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

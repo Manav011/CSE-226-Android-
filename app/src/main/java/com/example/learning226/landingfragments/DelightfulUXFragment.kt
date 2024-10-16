@@ -10,7 +10,7 @@ import android.annotation.SuppressLint
 import android.view.MotionEvent
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class SettingsFragment : Fragment() {
+class DelightfulUXFragment : Fragment() {
     private var xDelta = 0f
     private var yDelta = 0f
 
