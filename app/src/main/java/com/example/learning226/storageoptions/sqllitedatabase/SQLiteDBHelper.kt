@@ -67,7 +67,6 @@ class SQLiteDBHelper(context: Context, factory:SQLiteDatabase.CursorFactory?):
         return status
     }
 
-
     fun fetchData(): Cursor {
         val db = this.readableDatabase
         return db.rawQuery("SELECT * FROM " + TABLE_NAME , null)

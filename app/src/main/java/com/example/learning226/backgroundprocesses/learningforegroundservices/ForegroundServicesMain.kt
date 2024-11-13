@@ -38,6 +38,7 @@ class ForegroundServicesMain : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     private fun hasPermissions1(): Boolean{
         return ContextCompat.checkSelfPermission(this@ForegroundServicesMain,  android.Manifest.permission.FOREGROUND_SERVICE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(this@ForegroundServicesMain, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&

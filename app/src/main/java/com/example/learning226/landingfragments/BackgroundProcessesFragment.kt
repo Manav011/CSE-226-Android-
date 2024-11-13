@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.learning226.R
+import com.example.learning226.backgroundprocesses.boundservices.BoundServiceMain
 import com.example.learning226.backgroundprocesses.broadcastreceiver.ModeReceiverMain
 import com.example.learning226.backgroundprocesses.learningcoroutines.CoroutinesExamples
 import com.example.learning226.learningadapter.touchlandingpage.TouchLandingPage
@@ -38,7 +39,8 @@ class BackgroundProcessesFragment : Fragment() {
                             "Coroutine U-2",
                             "Foreground Service",
                             "Broadcast",
-                            "Star Activity")
+                            "Star Activity",
+                            "Bound Servies (Ringtone)")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
 
         list.adapter = adapter
@@ -49,6 +51,7 @@ class BackgroundProcessesFragment : Fragment() {
                 2 -> startActivity(Intent(requireContext(), ForegroundServicesMain::class.java))
                 3 -> startActivity(Intent(requireContext(), ModeReceiverMain::class.java))
                 4 -> startActivity(Intent(requireContext(), StarActivity::class.java))
+                5 -> startActivity(Intent(requireContext(), BoundServiceMain::class.java))
                 else -> throw IllegalArgumentException("Unexpected position home list viewL $position")
             }
         }

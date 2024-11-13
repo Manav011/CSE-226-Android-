@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        var bottomnav: BottomNavigationView = findViewById(R.id.bottom_bar)
+        val bottomnav: BottomNavigationView = findViewById(R.id.bottom_bar)
         bottomnav.setOnItemSelectedListener {item ->
             when (item.itemId) {
                 R.id.backgroundprocesses -> replaceFragment(BackgroundProcessesFragment())
