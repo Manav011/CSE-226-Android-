@@ -1,7 +1,7 @@
 package com.example.learning226
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         val floatingbtn: FloatingActionButton = findViewById(R.id.floatingbtn)
         floatingbtn.setOnClickListener{
-            Toast.makeText(this@MainActivity, "FLoating button clicked", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this@MainActivity, EspressoTestingActivity::class.java))
+//            Toast.makeText(this@MainActivity, "FLoating button clicked", Toast.LENGTH_SHORT).show()
         }
 
         val headnav: MaterialToolbar = findViewById(R.id.toolbar)

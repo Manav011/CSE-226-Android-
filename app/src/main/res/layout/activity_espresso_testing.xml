@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EspressoTestingActivity">
+
+    <TextView
+        android:id="@+id/select_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="Select Your Preferred Language"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:id="@+id/english"
+        android:text="English"
+        android:onClick="onClick"
+        android:textAllCaps="true"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:id="@+id/german"
+        android:onClick="onClick"
+        android:text="German"
+        android:textAllCaps="true"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/french"
+        android:padding="16dp"
+        android:onClick="onClick"
+        android:text="French"
+        android:textAllCaps="true"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hindi"
+        android:onClick="onClick"
+        android:text="Hindi"
+        android:padding="16dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/urdu"
+        android:onClick="onClick"
+        android:text="Urdu"
+        android:padding="16dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chosen"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="Your Chosen Language is : "
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/linear_layout"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/preferred_language"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:hint="-------------"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/chosen"/>
+
+</LinearLayout>
